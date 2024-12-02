@@ -7,17 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     protected $fillable = [
+        'id',
         'user_id',
         'category_id',
-        'type_id',
+        'type',
         'method',
         'interval',
         'amount',
         'description',
         'transaction_date',
         'source_type',
+        'source_id',
         'installment',
-        'frequency'];
+        'frequency',
+    'status'];
 
     public function scopeFilter($query, $filters)
     {

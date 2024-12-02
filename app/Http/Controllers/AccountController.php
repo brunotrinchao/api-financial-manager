@@ -27,7 +27,10 @@ class AccountController extends Controller
             'user_id' => $request->user()->id,
         ]);
 
-        return (AccountResource::make($account))->response()->setStatusCode(Response::HTTP_CREATED);
+        return (AccountResource::make($account))
+            ->additional(['message' => 'Conta adicionada com sucesso!'])
+            ->response()
+            ->setStatusCode(Response::HTTP_CREATED);
     }
 
     public function show($id)
@@ -41,7 +44,10 @@ class AccountController extends Controller
         $account = Account::findOrFail($id);
         $account->update($request->only(['name', 'bank_id', 'balance']));
 
-        return (AccountResource::make($account))->response()->setStatusCode(Response::HTTP_OK);
+        return (AccountResource::make($account))
+            ->additional(['message' => 'Conta atualizada com sucesso!'])
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 
     public function destroy($id)

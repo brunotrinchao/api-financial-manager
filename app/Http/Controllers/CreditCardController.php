@@ -15,6 +15,7 @@ class CreditCardController extends Controller
     public function index(IndexCreditCardRequest $request)
     {
         $creditCards = CreditCard::all();
+        $creditCards->load(['issuer']);
         return (CreditCardResource::collection($creditCards))->response()->setStatusCode(Response::HTTP_OK);
     }
 
@@ -22,11 +23,12 @@ class CreditCardController extends Controller
     {
         $creditCard = CreditCard::create([
             'name' => $request->name,
-            'bank_id' => $request->bank_id,
             'limit' => $request->limit,
             'issuer_id' => $request->issuer_id,
             'user_id' => $request->user()->id,
         ]);
+
+        $creditCard->load(['issuer']);
 
         return (CreditCardResource::make($creditCard))->response()->setStatusCode(Response::HTTP_CREATED);
     }
@@ -40,6 +42,7 @@ class CreditCardController extends Controller
     public function update(UpdateCreditCardRequest $request, $id)
     {
         $creditCard = CreditCard::findOrFail($id);
+
         $creditCard->update($request->validated());
         return (CreditCardResource::make($creditCard))->response()->setStatusCode(Response::HTTP_OK);
     }

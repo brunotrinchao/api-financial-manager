@@ -21,6 +21,7 @@ class CreditCardResource extends JsonResource
             'limit' => $this->limit,
             'available_limit' => $this->available_limit,
             'user' => UserResource::make($this->user),
+            'issuer' => IssuerResource::make($this->issuer),
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),
         ];

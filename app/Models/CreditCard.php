@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CreditCard extends Model
 {
     protected $table = 'credit_cards';
-    protected $fillable = ['user_id', 'issuer_id', 'name', 'limit', 'available_limit'];
+    protected $fillable = ['user_id', 'issuer_id', 'name', 'flag', 'limit', 'available_limit'];
 
 
     public function user()

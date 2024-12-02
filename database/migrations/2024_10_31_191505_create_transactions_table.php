@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('source_type')->nullable()->comment('account or credit_card');
             $table->integer('installment')->default(1)->comment('Parcela');
 
-//            $table->foreignId('source_id')->comment('Related ID of account or credit_card');
+            $table->foreignId('source_id')->nullable()->comment('Related ID of account or credit_card');
 
             $table->string('frequency')->nullable()->comment('Frequencia: Mensal, Semanal, Anual');
             $table->integer('interval')->nullable()->comment('Intervalo de pagamento: A cada 2 (meses), 1 (mes)');

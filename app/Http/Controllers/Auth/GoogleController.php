@@ -32,7 +32,7 @@ class GoogleController extends Controller
                     'password' => Hash::make($googleUser->getEmail())
                 ]
             );
-
+dd($googleUser);
             $token = $user->createToken('google_token')->plainTextToken;
 
             $ret = new UserRegisterResource((object)[

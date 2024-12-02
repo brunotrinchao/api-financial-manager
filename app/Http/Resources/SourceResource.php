@@ -17,10 +17,11 @@ class SourceResource extends JsonResource
         return [
           'id' => $this->id,
           'name' => $this->name,
-          'user' => UserResource::make($this->user),
-          'bank' => BankResource::make($this->bank),
-        'created_at' => $this->created_at->format('d/m/Y'),
-        'updated_at' => $this->updated_at->format('d/m/Y'),
+          'type' => $this->additional['type'],
+          'bank' =>BankResource::make($this->user),
+          'issuer' => IssuerResource::make($this->issuer),
+           'created_at' => $this->created_at->format('d/m/Y'),
+            'updated_at' => $this->updated_at->format('d/m/Y'),
         ];
     }
 }

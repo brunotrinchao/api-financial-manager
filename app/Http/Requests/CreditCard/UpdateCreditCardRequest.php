@@ -27,13 +27,14 @@ class UpdateCreditCardRequest extends FormRequest
                 'sometimes',
                 'string',
                 'max:255',
-                Rule::unique('credit_card')->where(function ($query) {
-                    return $query->where('user_id', $this->user()->id);
-                })
+//                Rule::unique('credit_cards')->where(function ($query) {
+//                    return $query->where('user_id', $this->user()->id);
+//                })
             ],
             'bank_id' => 'sometimes|exists:banks,id',
             'issuer_id' => 'sometimes|exists:issuers,id',
             'limit' => 'sometimes|numeric|min:0',
+            'available_limit' => 'sometimes|numeric|min:0',
         ];
     }
 }

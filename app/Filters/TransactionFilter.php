@@ -49,4 +49,12 @@ class TransactionFilter extends Filter
     {
         $this->builder->where('status', $value);
     }
+
+    public function orderBy($value)
+    {
+        $field = $value['field'] ?? 'id';
+        $order = $value['order'] ?? 'ASC';
+        $this->builder->orderBy($field, $order);
+    }
+
 }

@@ -6,6 +6,7 @@ enum TransactionTypeEnum: string
 {
     case INCOME = 'income';
     case EXPENSE = 'expense';
+    case TRASNFER = 'transfer';
 
     public static function getValues(): array
     {

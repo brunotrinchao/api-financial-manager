@@ -13,7 +13,7 @@ class AccountSeeder extends Seeder
      */
     public function run()
     {
-        Account::create(['user_id' => 1, 'bank_id' => 1, 'name' => 'Main Account', 'balance' => 1000.00]);
-        Account::create(['user_id' => 2, 'bank_id' => 2, 'name' => 'Savings Account', 'balance' => 5000.00]);
+        Account::create(['user_id' => 1, 'bank_id' => 1, 'name' => 'Main Account', 'balance' => 1000]);
+        Account::create(['user_id' => 2, 'bank_id' => 2, 'name' => 'Savings Account', 'balance' => 5000]);
     }
 }

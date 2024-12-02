@@ -24,8 +24,6 @@ class TransactionResource extends JsonResource
             "transaction_date" => $this->transaction_date,
             "amount" => (float) $this->amount,
             'installment' => $this->installment,
-//            "start_date" => $this->start_date,
-//            "end_date" => $this->end_date,
             "source" => $this->resolveSource(),
             "status" => $this->status,
             "category" => CategoryResource::make($this->whenLoaded('category')),
@@ -37,10 +35,11 @@ class TransactionResource extends JsonResource
 
     protected function resolveSource()
     {
+
         if ($this->source_type === 'account' && $this->relationLoaded('sourceAccount')) {
-            return new SourceResource($this->sourceAccount);
+            return SourceResource::make($this->sourceAccount)->additional(['type' => 'account']);
         } elseif ($this->source_type === 'credit_card' && $this->relationLoaded('sourceCreditCard')) {
-            return new SourceResource($this->sourceCreditCard);
+            return SourceResource::make($this->sourceCreditCard)->additional(['type' => 'credit_card']);
         }
 
         return null;
