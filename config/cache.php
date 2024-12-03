@@ -48,8 +48,8 @@ return [
 
         'file' => [
             'driver' => 'file',
-            'path' => env('CACHE_PATH', '/tmp'), //storage_path('framework/cache/data'),
-            'lock_path' => env('CACHE_PATH', '/tmp'), //storage_path('framework/cache/data'),
+            'path' => storage_path('framework/cache/data'),
+            'lock_path' => storage_path('framework/cache/data'),
         ],
 
         'memcached' => [
