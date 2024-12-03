@@ -24,6 +24,9 @@ jobs:
           php artisan optimize
           php artisan migrate --force
           php artisan db:seed --force
+          php artisan cache:clear
+          php artisan view:clear
+          php artisan config:clear
         env:
           APP_ENV: production
       #          DB_CONNECTION: pgsql
