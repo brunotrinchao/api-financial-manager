@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
 
+Route::get('/health', function () {
+    return response('OK', 200)
+        ->header('Content-Type', 'text/plain');
+});
+
 Route::middleware(['auth:sanctum'])->group(function () {
     // Usuários
     Route::apiResource('users', UserController::class)->only(['show', 'update', 'destroy']);
