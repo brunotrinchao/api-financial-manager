@@ -4,6 +4,9 @@
     "functions": {
         "api/index.php": { "runtime": "vercel-php@0.7.3" }
     },
+    "github": {
+        "enabled": false
+    },
     "routes": [
         {
         "src": "/(.*)",
@@ -13,7 +16,7 @@
     "outputDirectory": "public",
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "true",
+        "APP_DEBUG": "false",
         "APP_URL": "https://api-financial-manager.vercel.app",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
@@ -25,6 +28,11 @@
 
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie"
+        "SESSION_DRIVER": "cookie",
+
+        "BROADCAST_DRIVER": "log",
+        "FILESYSTEM_DISK": "local",
+        "QUEUE_CONNECTION": "sync",
+        "SESSION_LIFETIME": "120"
     }
 }
