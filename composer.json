@@ -4,6 +4,7 @@
     "description": "The skeleton application for the Laravel framework.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
+    "engines": { "node": "18.x" },
     "require": {
         "php": "^8.2",
         "andreaselia/laravel-api-to-postman": "^2.0",
