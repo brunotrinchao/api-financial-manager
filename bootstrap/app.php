@@ -13,6 +13,10 @@ return Application::configure(basePath: dirname(__DIR__))
         apiPrefix: 'backend',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->validateCsrfTokens(except: [
+            'https://www.brunotrinchao.com.br/backend/*',
+            'https://brunotrinchao.com.br/backend/*'// <-- exclude this route
+        ]);
         $middleware->api(prepend: [
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
         ]);
